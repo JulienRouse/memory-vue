@@ -1,0 +1,15 @@
+/* style.css */
+.clearfix::after, .clearfix::before{float:none;clear:both;content:"";display:block;}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font: 13px Helvetica, Arial; }
+
+
+.defaultClass{height:50px; width:25%; display:inline-block; background-color:#fff; border:1px solid black}
+.red{background-color:red}
+.black{background-color:black;}
+.orange{background-color:orange;}
+.blue{background-color:blue}
+.green{background-color:green}
+.grey{background-color:grey;}
+.cyan{background-color:cyan;}
+.yellow{background-color:yellow}
