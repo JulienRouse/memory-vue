@@ -9,8 +9,8 @@
  	<div id="title">
 	    <h1>{{message}}</h1>
 	</div>
-	<div id="list-cards__div"> 
-	    <select v-model.number="numberItem" >
+	 <div id="list-cards__div"> 
+	     <select v-model="numberItem" @change="launch">
 		<option v-bind:value="{val : 0}" >0</option>
 		<option v-bind:value="{val : 4}" >4</option>
 		<option v-bind:value="{val : 8}" >8</option>
@@ -24,13 +24,16 @@
 		    v-bind:class="[defaultClass, item.isClicked ? item.color : '']">
 		</li>
 	    </ul>
-	</div>
+	 </div>
+	 <div id="list-cards__div2">
+	 </div>
 	<!-- script -->
 	<script src="js/vue.js"></script>
+	<!-- <script src="https://unpkg.com/vue "></script> -->
 	<script src="https://unpkg.com/vuex"></script>
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
-		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-		crossorigin="anonymous"></script>
+	<!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+	     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	     crossorigin="anonymous"></script> -->
 	<script src="js/script.js"></script>
     </body>
 </html>

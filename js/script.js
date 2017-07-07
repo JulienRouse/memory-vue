@@ -90,18 +90,68 @@ var el_li = new Vue({
 		array[randomIndex] = temporaryValue;
 	    }
 	    return array;
-	}
-    },
-    watch: {
-	numberItem: function(){
+	},
+	launch: function() {
 	    this.createColorCombination(this.numberItem.val);
-	    this.createCards();
-	    this.alreadyLookingForPair = false;
-	    this.numberGuess = 0;
+    	    this.createCards();
+    	    this.alreadyLookingForPair = false;
+    	    this.numberGuess = 0;
 	}
     }
+    // watch: {
+    // 	numberItem: function(){
+    // 	    this.createColorCombination(this.numberItem.val);
+    // 	    this.createCards();
+    // 	    this.alreadyLookingForPair = false;
+    // 	    this.numberGuess = 0;
+    // 	}
+    // }
 });
 
+var selectComponent = {
+    template : `
+  <select v-model="selectedValue" @change='launch'>
+    <option v-bind:value="{val : 0}">0</option>
+    <option v-bind:value="{val : 4}">4</option>
+    <option v-bind:value="{val : 8}">8</option>
+    <option v-bind:value="{val : 12}">12</option>
+    <option v-bind:value="{val : 16}">16</option>
+  </select>`,
+    data: function(){
+	return {
+	    selectedValue: {val : 0}
+	}
+    },
+    methods: {
+	launch: function() {
+	    console.log(this.selectedValue.val);
+	    this.$emit('launch', [this.selectedValue]);
+	}
+    }
+    
+}
+
+var basicElement = {}
+  
+
+const app = new Vue({
+    el: '#list-cards__div2',
+    template: '<div><select-component v-on:launch="launch"></select-component><p>{{numberItem.val}}</p></div>',
+    //template: '<div></div>',
+    data: function(){
+	return {
+	    numberItem: {val: 0}
+	}
+    },
+    methods: {
+	launch: function([object]){
+	    this.numberItem = object;
+	}
+    },
+    components: {
+	'select-component': selectComponent
+    }
+});
 
 
 
